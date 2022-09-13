@@ -1,0 +1,105 @@
+Q1/
+List listA = [
+      "Muklah",
+      "Diyar",
+      "Noorhan",
+      "Ali",
+      "Abdulbasit",
+      "Dena",
+      "Saba",
+      "Fadi",
+      "Karrar",
+      "Ahmed"
+    ];
+
+    List listB = [
+      "Diyar",
+      "Noorhan",
+      "Muklah",
+      "Saba",
+      "Mustafa",
+      "Ahmed",
+      "Fadi",
+      "Dena",
+      "Hassan",
+      "Ali",
+    ];
+
+    var list = new List.from(listA)..addAll(listB);
+    print(list);
+
+    var result = list.where((f) => f.startsWith('M')).toList();
+    print(result);
+
+
+Q2/
+class Account {
+  late int _accountNo;
+  late String _name;
+  late String _dateOfBirth;
+  late double _amount;
+  late String _dateCreated;
+
+  void insert(int accontNumber, String name, String dataOfbirth, double amount, String dateCreated) {
+    this._accountNo = accontNumber;
+    this._name = name;
+    this._dateOfBirth = dataOfbirth;
+    this._amount = amount;
+    this._dateCreated = dateCreated;
+  }
+
+  void deposit(double amount) {
+    if(amount > 0) {
+      _amount = _amount + amount;
+      print('deposite balance: ${_amount}');
+    }
+    else
+      print("failed in deposite");
+  }
+
+  void withdraw(double amount) {
+    if(amount <= _amount){
+      _amount = _amount - amount;
+      print('withdraw balance: ${_amount}');
+    }
+    else
+      print("Sorry the balance is empty");
+
+  }
+
+  void checkBalance() {
+    print('The balance on the account is: ${_amount}');
+  }
+
+  void printInfo() {
+    print("The information of account is:");
+    print('account Number: ${_accountNo.toString()}');
+    print('name: ${_name.toString()}');
+    print('data Of Birth: ${_dateOfBirth.toString()}');
+    print('amount: ${_amount.toString()}');
+    print('data created: ${_dateCreated.toString()}');
+    print('-' * 30);
+
+  }
+}
+
+Account ali = new Account();
+    ali.insert(1111, "ali", "1998/4/4", 1000, '2022-13-9');
+    ali.deposit(20);
+    ali.withdraw(80);
+    ali.checkBalance();
+    ali.printInfo();
+
+    Account noor = new Account();
+    noor.insert(11, "noor", "1997/9/4", 2000, '2022-14-9');
+    noor.deposit(50);
+    noor.withdraw(100);
+    noor.checkBalance();
+    noor.printInfo();
+
+    Account huda = new Account();
+    huda.insert(11, "huda", "1996/1/3", 3000, '2022-10-9');
+    huda.deposit(60);
+    huda.withdraw(200);
+    huda.checkBalance();
+    huda.printInfo();
